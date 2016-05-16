@@ -1,15 +1,19 @@
 # Description:
-# Lets you search for JIRA tickets, open
-# them, transition them thru different states, comment on them, rank
-# them up or down, start or stop watching them or change who is
-# assigned to a ticket. Also, notifications for mentions, assignments and watched tickets.
+#   Lets you search for JIRA tickets, open them, transition them thru
+#   different states, comment on them, rank them up or down, start or
+#   stop watching them or change who is assigned to a ticket.
+#   Also, notifications for mentions, assignments and watched tickets.
 #
 # Dependencies:
-# - moment
-# - octokat
-# - node-fetch
-# - underscore
-# - fuse.js
+#   "fuse.js": "^2.2.0",
+#   "memory-cache": "^0.1.5",
+#   "moment": "^2.12.0",
+#   "node-fetch": "^1.5.1",
+#   "octokat": "^0.5.0-beta.0",
+#   "underscore": "^1.8.3"
+#
+# Commands:
+#   hubot jira help - Show an extended help message
 #
 # Configuration:
 #   HUBOT_JIRA_URL (format: "https://jira-domain.com:9090")
@@ -336,6 +340,7 @@ class JiraBot
           If you wish to _enable_ them again just send me this message:
           > jira enable notifications
           """
+
     #Search
     @robot.respond Config.search.regex, (msg) =>
       msg.finish()
