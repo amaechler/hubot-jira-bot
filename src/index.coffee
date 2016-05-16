@@ -422,7 +422,7 @@ class JiraBot
         Jira.Assign.forTicketKeyToPerson key, person, msg, no
 
     #Create
-    @robot.respond Config.commands.regex, (msg) =>
+    @robot.respond Config.create.regex, (msg) =>
       [ __, project, command, summary ] = msg.match
       room = project or msg.message.room
       project = Config.maps.projects[room]

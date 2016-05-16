@@ -43,8 +43,8 @@ class Config
     regex: new RegExp "(^|\\s)(" + Config.projects.prefixes + "-)(\\d+)\\b", "i"
     regexGlobal: new RegExp "(^|\\s)(" + Config.projects.prefixes + "-)(\\d+)\\b", "gi"
 
-  @commands:
-    regex: new RegExp "(?:#?(#{Config.projects.channels})\\s+)?(#{Config.types.commands}) ([^]+)", "i"
+  @create:
+    regex: new RegExp "(?:j|jira) create(?:\\s+)?(?:#(#{Config.projects.prefixes})\\s+)?(#{Config.types.commands}) ([^]+)", "i"
 
 #  @transitions:
 #    if Config.maps.transitions
