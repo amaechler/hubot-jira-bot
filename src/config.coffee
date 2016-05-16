@@ -46,10 +46,10 @@ class Config
   @commands:
     regex: new RegExp "(?:#?(#{Config.projects.channels})\\s+)?(#{Config.types.commands}) ([^]+)", "i"
 
-  @transitions:
-    if Config.maps.transitions
-      regex: new RegExp "^((?:#{Config.projects.prefixes}-)(?:\\d+))\\s+(?:to\\s+|>\\s?)(#{(Config.maps.transitions.map (t) -> t.name).join "|"})", "i"
-      shouldRegex: new RegExp "\\s+>\\s?(#{(Config.maps.transitions.map (t) -> t.name).join "|"})", "i"
+#  @transitions:
+#    if Config.maps.transitions
+#      regex: new RegExp "^((?:#{Config.projects.prefixes}-)(?:\\d+))\\s+(?:to\\s+|>\\s?)(#{(Config.maps.transitions.map (t) -> t.name).join "|"})", "i"
+#      shouldRegex: new RegExp "\\s+>\\s?(#{(Config.maps.transitions.map (t) -> t.name).join "|"})", "i"
 
   @priority:
     if Config.maps.priorities
@@ -62,24 +62,24 @@ class Config
     regex: /(?:(?:^|\s+)@([\w._]*))/i
     regexGlobal: /(?:(?:^|\s+)@([\w._]*))/gi
 
-  @rank:
-    regex: new RegExp "(?:^|\\s)((?:#{Config.projects.prefixes}-)(?:\\d+)) rank (.*)", "i"
+#  @rank:
+#    regex: new RegExp "(?:^|\\s)((?:#{Config.projects.prefixes}-)(?:\\d+)) rank (.*)", "i"
 
   @watch:
     notificationsRegex: /jira (allow|start|enable|disallow|disable|stop)( notifications)?/i
     regex: new RegExp "^((?:#{Config.projects.prefixes}-)(?:\\d+)) (un)?watch(?: @?([\\w._]*))?", "i"
 
-  @subtask:
-    regex: new RegExp "subtask\\s+((?:#{Config.projects.prefixes}-)(?:\\d+)) ([^]+)", "i"
+#  @subtask:
+#    regex: new RegExp "subtask\\s+((?:#{Config.projects.prefixes}-)(?:\\d+)) ([^]+)", "i"
 
   @assign:
     regex: new RegExp "^((?:#{Config.projects.prefixes}-)(?:\\d+))(?: (un)?assign)? @?([\\w._]*)\\s*$", "i"
 
-  @clone:
-    regex: new RegExp "^((?:#{Config.projects.prefixes}-)(?:\\d+))\\s*(?:(?:>|clone(?:s)?(?:\\s+to)?)\\s*)(?:#)?(#{Config.projects.channels})", "i"
+#  @clone:
+#    regex: new RegExp "^clone ((?:#{Config.projects.prefixes}-)(?:\\d+))\\s*(?:(?:>|clone(?:s)?(?:\\s+to)?)\\s*)(?:#)?(#{Config.projects.channels})", "i"
 
-  @comment:
-    regex: new RegExp "^((?:#{Config.projects.prefixes}-)(?:\\d+))\\s?(?:<\\s?)([^]+)", "i"
+#  @comment:
+#    regex: new RegExp "^comment ((?:#{Config.projects.prefixes}-)(?:\\d+))\\s?(?:<\\s?)([^]+)", "i"
 
   @labels:
     addRegex: new RegExp "^((?:#{Config.projects.prefixes}-)(?:\\d+))\\s?<(\\s*#\\S+)+$", "i"

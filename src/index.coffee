@@ -354,57 +354,57 @@ class JiraBot
         @robot.logger.error error.stack
 
     #Transition
-    if Config.maps.transitions
-      @robot.hear Config.transitions.regex, (msg) =>
-        msg.finish()
-        [ __, key, toState ] = msg.match
-        Jira.Transition.forTicketKeyToState key, toState, msg, no
+    # if Config.maps.transitions
+    #   @robot.hear Config.transitions.regex, (msg) =>
+    #     msg.finish()
+    #     [ __, key, toState ] = msg.match
+    #     Jira.Transition.forTicketKeyToState key, toState, msg, no
 
     #Clone
-    @robot.hear Config.clone.regex, (msg) =>
-      msg.finish()
-      [ __, ticket, channel ] = msg.match
-      project = Config.maps.projects[channel]
-      Jira.Clone.fromTicketKeyToProject ticket, project, channel, msg
+    # @robot.hear Config.clone.regex, (msg) =>
+    #   msg.finish()
+    #   [ __, ticket, channel ] = msg.match
+    #   project = Config.maps.projects[channel]
+    #   Jira.Clone.fromTicketKeyToProject ticket, project, channel, msg
 
     #Watch
-    @robot.hear Config.watch.regex, (msg) =>
-      msg.finish()
-      [ __, key, remove, person ] = msg.match
-
-      if remove
-        Jira.Watch.forTicketKeyRemovePerson key, person, msg, no
-      else
-        Jira.Watch.forTicketKeyForPerson key, person, msg, no
+    # @robot.hear Config.watch.regex, (msg) =>
+    #   msg.finish()
+    #   [ __, key, remove, person ] = msg.match
+    #
+    #   if remove
+    #     Jira.Watch.forTicketKeyRemovePerson key, person, msg, no
+    #   else
+    #     Jira.Watch.forTicketKeyForPerson key, person, msg, no
 
     #Rank
-    @robot.hear Config.rank.regex, (msg) =>
-      msg.finish()
-      [ __, key, direction ] = msg.match
-      Jira.Rank.forTicketKeyByDirection key, direction, msg, no
+    # @robot.hear Config.rank.regex, (msg) =>
+    #   msg.finish()
+    #   [ __, key, direction ] = msg.match
+    #   Jira.Rank.forTicketKeyByDirection key, direction, msg, no
 
     #Labels
-    @robot.hear Config.labels.addRegex, (msg) =>
-      msg.finish()
-      [ __, key ] = msg.match
-      {input: input} = msg.match
-      labels = []
-      labels = (input.match(Config.labels.regex).map((label) -> label.replace('#', '').trim())).concat(labels)
-
-      Jira.Labels.forTicketKeyWith key, labels, msg, no
+    # @robot.hear Config.labels.addRegex, (msg) =>
+    #   msg.finish()
+    #   [ __, key ] = msg.match
+    #   {input: input} = msg.match
+    #   labels = []
+    #   labels = (input.match(Config.labels.regex).map((label) -> label.replace('#', '').trim())).concat(labels)
+    #
+    #   Jira.Labels.forTicketKeyWith key, labels, msg, no
 
     #Comment
-    @robot.hear Config.comment.regex, (msg) =>
-      msg.finish()
-      [ __, key, comment ] = msg.match
-
-      Jira.Comment.forTicketKeyWith key, comment, msg, no
+    # @robot.hear Config.comment.regex, (msg) =>
+    #   msg.finish()
+    #   [ __, key, comment ] = msg.match
+    #
+    #   Jira.Comment.forTicketKeyWith key, comment, msg, no
 
     #Subtask
-    @robot.respond Config.subtask.regex, (msg) =>
-      msg.finish()
-      [ __, key, summary ] = msg.match
-      Jira.Create.subtaskFromKeyWith key, summary, msg
+    # @robot.respond Config.subtask.regex, (msg) =>
+    #   msg.finish()
+    #   [ __, key, summary ] = msg.match
+    #   Jira.Create.subtaskFromKeyWith key, summary, msg
 
     #Assign
     @robot.hear Config.assign.regex, (msg) =>
