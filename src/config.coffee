@@ -89,6 +89,6 @@ class Config
     regex: new RegExp "(?:j|jira) (?:search)(?:\\s+)?(?:#(#{Config.projects.prefixes})\\s+)?(.+)?", "i"
 
   @help:
-    regex: /(?:help jira|jira help)(?: (.*))?/
+    regex: /jira(?: (.*))? help/
 
 module.exports = Config
