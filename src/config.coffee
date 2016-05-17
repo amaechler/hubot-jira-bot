@@ -86,7 +86,7 @@ class Config
     regex: /(?:\s+|^)#\S+/g
 
   @search:
-    regex: /(?:j|jira) (?:s|search|find|query) (.+)/
+    regex: new RegExp "(?:j|jira) (?:search)(?:\\s+)?(?:#(#{Config.projects.prefixes})\\s+)?(.+)?", "i"
 
   @help:
     regex: /(?:help jira|jira help)(?: (.*))?/

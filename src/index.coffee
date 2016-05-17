@@ -344,9 +344,14 @@ class JiraBot
     #Search
     @robot.respond Config.search.regex, (msg) =>
       msg.finish()
-      [__, query] = msg.match
-      room = msg.message.room
+      [__, project, query] = msg.match
+      room = project or msg.message.room
       project = Config.maps.projects[room]
+
+      if not query
+        @send msg, Help.forTopic "search", @robot
+        return
+
       Jira.Search.withQueryForProject(query, project, msg)
       .then (results) =>
         attachments = (ticket.toAttachment() for ticket in results.tickets)
